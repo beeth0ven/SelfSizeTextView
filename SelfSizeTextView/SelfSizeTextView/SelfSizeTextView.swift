@@ -9,19 +9,15 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxBlocking
 
 @IBDesignable class SelfSizeTextView: PlaceholderTextView {
+    
+    var didIncreaseHeight: ((CGFloat) -> Void)?
     
     @IBInspectable var maxLines: Int = 6 { didSet { updateSizeIfNeededAnimated(false) } }
     
     private let estimationLayoutManager = NSLayoutManager()
     private let estimationTextContainer = NSTextContainer()
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setup()
-    }
 
     private var heightConstraint: NSLayoutConstraint {
         guard let constraint = constraints.find({ $0.firstAttribute == .Height && $0.relation == .Equal }) else {
@@ -57,11 +53,15 @@ import RxBlocking
         return CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric)
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setup()
+    }
+    
     private func setup() {
         contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0)
         estimationLayoutManager.addTextContainer(estimationTextContainer)
     }
-    
     
     private func heightForLines(lines: Int) -> CGFloat {
         var height = contentInset.top + contentInset.bottom
@@ -88,18 +88,20 @@ import RxBlocking
                 },
                 completion: { [unowned self] _ in
                     self.layoutManager.ensureLayoutForTextContainer(self.textContainer)
-                    self.scrollToVisibleCaretIdNeeded()
+                    self.scrollToVisibleCaretIfNeeded()
+                    if estimatedHeight > oldHeight { self.didIncreaseHeight?(estimatedHeight - oldHeight) }
             })
             
         } else {
             setHeight(estimatedHeight)
             superview?.layoutIfNeeded()
             layoutManager.ensureLayoutForTextContainer(textContainer)
-            scrollToVisibleCaretIdNeeded()
+            scrollToVisibleCaretIfNeeded()
+            if estimatedHeight > oldHeight { didIncreaseHeight?(estimatedHeight - oldHeight) }
         }
     }
     
-    private func scrollToVisibleCaretIdNeeded() {
+    private func scrollToVisibleCaretIfNeeded() {
         guard let endPosition = selectedTextRange?.end else { return }
         
         if textStorage.editedRange.location == NSNotFound && !dragging && !decelerating {

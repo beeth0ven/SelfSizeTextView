@@ -9,13 +9,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxBlocking
 
 @IBDesignable class PlaceholderTextView: UITextView {
     
     @IBInspectable var placeholder: NSString? { didSet { setNeedsDisplay() } }
     
     @IBInspectable var placeholderColor: UIColor = .lightGrayColor() { didSet { setNeedsDisplay() } }
+    
+    override var text: String! { didSet { setNeedsDisplay() } }
     
     override func awakeFromNib() {
         super.awakeFromNib()
