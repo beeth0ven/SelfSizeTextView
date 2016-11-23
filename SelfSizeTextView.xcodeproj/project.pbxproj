@@ -15,10 +15,11 @@
 		450AC9071CE4578100AE0DC5 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AC9061CE4578100AE0DC5 /* Helper.swift */; };
 		450AC9091CE4589F00AE0DC5 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AC9081CE4589F00AE0DC5 /* PlaceholderTextView.swift */; };
 		450AC90D1CE4682600AE0DC5 /* SelfSizeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 450AC90C1CE4682600AE0DC5 /* SelfSizeTextView.swift */; };
-		BF80727BC8B8AFB27103E11C /* Pods_SelfSizeTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85BA6C78CB2087829A84F9B9 /* Pods_SelfSizeTextView.framework */; };
+		E0305AE5CF81503F888B2DD0 /* Pods_SelfSizeTextView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02921B290E99FD5E86BA4DFD /* Pods_SelfSizeTextView.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02921B290E99FD5E86BA4DFD /* Pods_SelfSizeTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfSizeTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		450AC8F01CE4559500AE0DC5 /* SelfSizeTextView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SelfSizeTextView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		450AC8F31CE4559500AE0DC5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		450AC8F51CE4559500AE0DC5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,9 +30,8 @@
 		450AC9061CE4578100AE0DC5 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		450AC9081CE4589F00AE0DC5 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		450AC90C1CE4682600AE0DC5 /* SelfSizeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfSizeTextView.swift; sourceTree = "<group>"; };
-		4DC6F5E6FE8535469AD37831 /* Pods-SelfSizeTextView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfSizeTextView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SelfSizeTextView/Pods-SelfSizeTextView.release.xcconfig"; sourceTree = "<group>"; };
-		85BA6C78CB2087829A84F9B9 /* Pods_SelfSizeTextView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SelfSizeTextView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A64B942888B452775C9EF524 /* Pods-SelfSizeTextView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfSizeTextView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelfSizeTextView/Pods-SelfSizeTextView.debug.xcconfig"; sourceTree = "<group>"; };
+		541714A745E10E86D63F905D /* Pods-SelfSizeTextView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfSizeTextView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SelfSizeTextView/Pods-SelfSizeTextView.debug.xcconfig"; sourceTree = "<group>"; };
+		B417CB6AD65FF8DDE318DFBC /* Pods-SelfSizeTextView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SelfSizeTextView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SelfSizeTextView/Pods-SelfSizeTextView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF80727BC8B8AFB27103E11C /* Pods_SelfSizeTextView.framework in Frameworks */,
+				E0305AE5CF81503F888B2DD0 /* Pods_SelfSizeTextView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +51,8 @@
 			children = (
 				450AC8F21CE4559500AE0DC5 /* SelfSizeTextView */,
 				450AC8F11CE4559500AE0DC5 /* Products */,
-				4A94B76413496259155461FB /* Pods */,
-				B79A38EEDD46A867C5438166 /* Frameworks */,
+				684AA9475DFBEF8B03D826DC /* Pods */,
+				D3CDB4FC7952D35B4086A0D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,19 +96,19 @@
 			path = SelfSizeTextView;
 			sourceTree = "<group>";
 		};
-		4A94B76413496259155461FB /* Pods */ = {
+		684AA9475DFBEF8B03D826DC /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A64B942888B452775C9EF524 /* Pods-SelfSizeTextView.debug.xcconfig */,
-				4DC6F5E6FE8535469AD37831 /* Pods-SelfSizeTextView.release.xcconfig */,
+				541714A745E10E86D63F905D /* Pods-SelfSizeTextView.debug.xcconfig */,
+				B417CB6AD65FF8DDE318DFBC /* Pods-SelfSizeTextView.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		B79A38EEDD46A867C5438166 /* Frameworks */ = {
+		D3CDB4FC7952D35B4086A0D5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				85BA6C78CB2087829A84F9B9 /* Pods_SelfSizeTextView.framework */,
+				02921B290E99FD5E86BA4DFD /* Pods_SelfSizeTextView.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,12 +120,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 450AC9021CE4559500AE0DC5 /* Build configuration list for PBXNativeTarget "SelfSizeTextView" */;
 			buildPhases = (
-				EC32F2ECA0720F59A794F250 /* Check Pods Manifest.lock */,
+				C3D0E17604713A1D8F874B94 /* [CP] Check Pods Manifest.lock */,
 				450AC8EC1CE4559500AE0DC5 /* Sources */,
 				450AC8ED1CE4559500AE0DC5 /* Frameworks */,
 				450AC8EE1CE4559500AE0DC5 /* Resources */,
-				53E849DF3E18AEB80BB88E48 /* Embed Pods Frameworks */,
-				7590724558F84543252D1BE7 /* Copy Pods Resources */,
+				5DB061B7110B4A480C00D75F /* [CP] Embed Pods Frameworks */,
+				EDE36CF9ACCE642102F6FD49 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -143,11 +143,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = LuoJie;
 				TargetAttributes = {
 					450AC8EF1CE4559500AE0DC5 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -183,14 +184,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		53E849DF3E18AEB80BB88E48 /* Embed Pods Frameworks */ = {
+		5DB061B7110B4A480C00D75F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,34 +199,34 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelfSizeTextView/Pods-SelfSizeTextView-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7590724558F84543252D1BE7 /* Copy Pods Resources */ = {
+		C3D0E17604713A1D8F874B94 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EDE36CF9ACCE642102F6FD49 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SelfSizeTextView/Pods-SelfSizeTextView-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC32F2ECA0720F59A794F250 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -279,8 +280,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -325,8 +328,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -345,6 +350,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -352,25 +358,29 @@
 		};
 		450AC9031CE4559500AE0DC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A64B942888B452775C9EF524 /* Pods-SelfSizeTextView.debug.xcconfig */;
+			baseConfigurationReference = 541714A745E10E86D63F905D /* Pods-SelfSizeTextView.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SelfSizeTextView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.beeth0ven.SelfSizeTextView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		450AC9041CE4559500AE0DC5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4DC6F5E6FE8535469AD37831 /* Pods-SelfSizeTextView.release.xcconfig */;
+			baseConfigurationReference = B417CB6AD65FF8DDE318DFBC /* Pods-SelfSizeTextView.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SelfSizeTextView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.beeth0ven.SelfSizeTextView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

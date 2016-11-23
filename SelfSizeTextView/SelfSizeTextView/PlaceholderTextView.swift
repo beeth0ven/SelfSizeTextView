@@ -14,7 +14,7 @@ import RxCocoa
     
     @IBInspectable var placeholder: NSString? { didSet { setNeedsDisplay() } }
     
-    @IBInspectable var placeholderColor: UIColor = .lightGrayColor() { didSet { setNeedsDisplay() } }
+    @IBInspectable var placeholderColor: UIColor = .lightGray { didSet { setNeedsDisplay() } }
     
     override var text: String! { didSet { setNeedsDisplay() } }
     
@@ -23,23 +23,22 @@ import RxCocoa
         setup()
     }
     
-    private func setup() {
-        observeForName(UITextViewTextDidChangeNotification, object: self) { [unowned self] _ in
+    fileprivate func setup() {
+        observeForName(.UITextViewTextDidChange, object: self) { [unowned self] _ in
             self.setNeedsDisplay()
         }
     }
     
-    override func drawRect(rect: CGRect) {
-        super.drawRect(rect)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
         
-        guard let placeholder = placeholder
-            where text.isEmpty else { return }
+        guard let placeholder = placeholder, text.isEmpty else { return }
         
         var placeholderAttributes = [String: AnyObject]()
-        placeholderAttributes[NSFontAttributeName] = font ?? UIFont.systemFontOfSize(UIFont.systemFontSize())
+        placeholderAttributes[NSFontAttributeName] = font ?? UIFont.systemFont(ofSize: UIFont.systemFontSize)
         placeholderAttributes[NSForegroundColorAttributeName] = placeholderColor
         
-        let placeholderRect = CGRectInset(rect, contentInset.left + textContainerInset.left + textContainer.lineFragmentPadding, contentInset.top + textContainerInset.top)
-        placeholder.drawInRect(placeholderRect, withAttributes: placeholderAttributes)
+        let placeholderRect = rect.insetBy(dx: contentInset.left + textContainerInset.left + textContainer.lineFragmentPadding, dy: contentInset.top + textContainerInset.top)
+        placeholder.draw(in: placeholderRect, withAttributes: placeholderAttributes)
     }
 }

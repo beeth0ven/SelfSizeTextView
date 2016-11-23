@@ -16,41 +16,41 @@ import RxCocoa
     
     @IBInspectable var maxLines: Int = 6 { didSet { updateSizeIfNeededAnimated(false) } }
     
-    private let estimationLayoutManager = NSLayoutManager()
-    private let estimationTextContainer = NSTextContainer()
+    fileprivate let estimationLayoutManager = NSLayoutManager()
+    fileprivate let estimationTextContainer = NSTextContainer()
 
-    private var heightConstraint: NSLayoutConstraint {
-        guard let constraint = constraints.find({ $0.firstAttribute == .Height && $0.relation == .Equal }) else {
+    fileprivate var heightConstraint: NSLayoutConstraint {
+        guard let constraint = constraints.find({ $0.firstAttribute == .height && $0.relation == .equal }) else {
             fatalError("Height Constraint is required to enable self size textView!")
         }
         return constraint
     }
     
-    private var estimatedHeight: CGFloat {
+    fileprivate var estimatedHeight: CGFloat {
         let estimatedTextStorage = NSTextStorage(attributedString: attributedText)
         estimatedTextStorage.addLayoutManager(estimationLayoutManager)
         
         estimationTextContainer.lineFragmentPadding = textContainer.lineFragmentPadding
         estimationTextContainer.size = textContainer.size
         
-        estimationLayoutManager.ensureLayoutForTextContainer(estimationTextContainer)
+        estimationLayoutManager.ensureLayout(for: estimationTextContainer)
         
-        let height = estimationLayoutManager.usedRectForTextContainer(estimationTextContainer).height + contentInset.top + contentInset.bottom + textContainerInset.top + textContainerInset.bottom
+        let height = estimationLayoutManager.usedRect(for: estimationTextContainer).height + contentInset.top + contentInset.bottom + textContainerInset.top + textContainerInset.bottom
         return min(max(miniHeight, height), maxHeight)
     }
     
-    private var maxHeight: CGFloat { return heightForLines(maxLines) }
-    private var miniHeight: CGFloat { return heightForLines(2) }
+    fileprivate var maxHeight: CGFloat { return heightForLines(maxLines) }
+    fileprivate var miniHeight: CGFloat { return heightForLines(2) }
     
     override var contentSize: CGSize {
         didSet {
             guard isOnScreen && oldValue != contentSize else { return }
-            updateSizeIfNeededAnimated(isFirstResponder())
+            updateSizeIfNeededAnimated(isFirstResponder)
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
-        return CGSizeMake(UIViewNoIntrinsicMetric, UIViewNoIntrinsicMetric)
+    override var intrinsicContentSize : CGSize {
+        return CGSize(width: UIViewNoIntrinsicMetric, height: UIViewNoIntrinsicMetric)
     }
     
     override func awakeFromNib() {
@@ -58,12 +58,12 @@ import RxCocoa
         setup()
     }
     
-    private func setup() {
+    fileprivate func setup() {
         contentInset = UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0)
         estimationLayoutManager.addTextContainer(estimationTextContainer)
     }
     
-    private func heightForLines(lines: Int) -> CGFloat {
+    fileprivate func heightForLines(_ lines: Int) -> CGFloat {
         var height = contentInset.top + contentInset.bottom
         if let font = font {
             height += font.lineHeight * CGFloat(lines)
@@ -71,23 +71,23 @@ import RxCocoa
         return ceil(height)
     }
     
-    private func updateSizeIfNeededAnimated(animated: Bool) {
+    fileprivate func updateSizeIfNeededAnimated(_ animated: Bool) {
         let oldHeight = bounds.height
         let estimatedHeight = self.estimatedHeight
         
         guard oldHeight != estimatedHeight else { return }
         
         if animated {
-            UIView.animateWithDuration(
-                0.3,
+            UIView.animate(
+                withDuration: 0.3,
                 delay: 0,
-                options: [.AllowUserInteraction, .BeginFromCurrentState],
+                options: [.allowUserInteraction, .beginFromCurrentState],
                 animations: { [unowned self] in
                     self.setHeight(estimatedHeight)
                     self.superview?.layoutIfNeeded()
                 },
                 completion: { [unowned self] _ in
-                    self.layoutManager.ensureLayoutForTextContainer(self.textContainer)
+                    self.layoutManager.ensureLayout(for: self.textContainer)
                     self.scrollToVisibleCaretIfNeeded()
                     if estimatedHeight > oldHeight { self.didIncreaseHeight?(estimatedHeight - oldHeight) }
             })
@@ -95,23 +95,23 @@ import RxCocoa
         } else {
             setHeight(estimatedHeight)
             superview?.layoutIfNeeded()
-            layoutManager.ensureLayoutForTextContainer(textContainer)
+            layoutManager.ensureLayout(for: textContainer)
             scrollToVisibleCaretIfNeeded()
             if estimatedHeight > oldHeight { didIncreaseHeight?(estimatedHeight - oldHeight) }
         }
     }
     
-    private func scrollToVisibleCaretIfNeeded() {
+    fileprivate func scrollToVisibleCaretIfNeeded() {
         guard let endPosition = selectedTextRange?.end else { return }
         
-        if textStorage.editedRange.location == NSNotFound && !dragging && !decelerating {
-            let caretRect = caretRectForPosition(endPosition)
+        if textStorage.editedRange.location == NSNotFound && !isDragging && !isDecelerating {
+            let caretRect = self.caretRect(for: endPosition)
             let caretCenterRect = CGRect(x: caretRect.midX, y: caretRect.midY, width: 0, height: 0)
             scrollRectToVisibleConsideringInsets(caretCenterRect)
         }
     }
     
-    private func scrollRectToVisibleConsideringInsets(rect: CGRect) {
+    fileprivate func scrollRectToVisibleConsideringInsets(_ rect: CGRect) {
         var contentInset = self.contentInset
         contentInset.left += textContainer.lineFragmentPadding
         
@@ -128,7 +128,7 @@ import RxCocoa
         setContentOffset(contentOffset, animated: false)
     }
     
-    private func setHeight(height: CGFloat) {
+    fileprivate func setHeight(_ height: CGFloat) {
         heightConstraint.constant = height
     }
     
@@ -137,12 +137,6 @@ import RxCocoa
 extension UIView {
     var isOnScreen: Bool {
         return window != nil
-    }
-}
-
-extension CGRect {
-    func contains(rect: CGRect) -> Bool {
-        return CGRectContainsRect(self, rect)
     }
 }
 

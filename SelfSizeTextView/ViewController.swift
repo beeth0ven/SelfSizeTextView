@@ -19,10 +19,9 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextViewDelegate {
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
-            guard let text = textView.text
-                where text.characters.count > 0 else { return false }
+            guard let text = textView.text, text.characters.count > 0 else { return false }
             textView.text = nil
             return false
         }

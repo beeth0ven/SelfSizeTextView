@@ -9,7 +9,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import RxBlocking
 
 
 extension UIView {
@@ -41,7 +40,7 @@ extension UIView {
             return layer.borderColor?.uiColor
         }
         set {
-            layer.borderColor = newValue?.CGColor
+            layer.borderColor = newValue?.cgColor
         }
     }
 }
@@ -51,7 +50,7 @@ extension CGColor {
     
     public var uiColor: UIColor {
         
-        return UIColor(CGColor: self)
+        return UIColor(cgColor: self)
     }
 }
 
@@ -78,22 +77,22 @@ private struct AssociatedKeys {
 }
 
 extension Array {
-    func find(@noescape predicate: (Element) -> Bool) -> Element? {
+    func find(_ predicate: (Element) -> Bool) -> Element? {
         return filter(predicate).first
     }
 }
 
 extension NSObject {
     
-    func postNotificationForName(name: String) {
-        NSNotificationCenter.defaultCenter()
-            .postNotificationName(name, object: self)
+    func postNotificationForName(_ name: String) {
+        NotificationCenter.default
+            .post(name: Notification.Name(rawValue: name), object: self)
     }
     
-    func observeForName(name: String, object: AnyObject? = nil, didReceiveNotification: (NSNotification) -> Void) {
-        NSNotificationCenter.defaultCenter()
-            .rx_notification(name, object: object)
-            .subscribeNext(didReceiveNotification)
+    func observeForName(_ name: Notification.Name, object: AnyObject? = nil, didReceiveNotification: @escaping (Notification) -> Void) {
+        NotificationCenter.default
+            .rx.notification(name, object: object)
+            .subscribe(onNext: didReceiveNotification)
             .addDisposableTo(disposeBag)
     }
 }
